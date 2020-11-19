@@ -1,17 +1,20 @@
-# Sales Taxes app
-
+Sales Taxes app
+====================
 This is Spring Boot Application that runs a RESTFul web server to manage a basic shopping basket. It uses an embedded H2 im memory database with an init script from from src/main/resources/data.sql. It exposes RESTFul services to create a basket, and to add and remote items. Every time an item is added or removed, sales taxes and total are recalculated on the fly and saved into db.  
 
 Main entities are 
- - Items: it describe a good that can be buyed
- - Tax: a definition of sale tax
- - ShoppingBasket: it describe a basket where items can be added
+ - _Items_: it describe a good that can be buyed
+ - _Tax_: a definition of sale tax
+ - _ShoppingBasket_: it describe a basket where items can be added
  
-# Integration tests 
-ShoppingBasketServiceTest class uses an embedded H2 database with initial data loaded from src/test/resources/data.sql file via Spring Boot test lib.
+
+Integration tests 
+---------------------
+[ShoppingBasketServiceTest.java](https://github.com/mitchn82/lastminute-test-sales/blob/main/src/test/java/com/lastiminute/test/sales/services/ShoppingBasketServiceTest.java) class uses an embedded H2 database with initial data loaded from src/test/resources/data.sql file via Spring Boot test lib.
 It solves the main goal of application, to calculate exact amount of taxes and totals for three given baskets.
 
-# RESTFul usage
+RESTFul usage
+---------------------
  - GET http://localhost:28080/sales/items
  Returns all items in db
  - POST http://localhost:28080/sales/baskets
